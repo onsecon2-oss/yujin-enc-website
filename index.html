@@ -365,6 +365,22 @@ table.crew td { color: #dbe3ea; height: 3.2em; }
 .flow { border-top: 0; }
 .flowdone { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; font-size: 17px; color: #dbe3ea; }
 .flowdone b { font-family: var(--display); font-weight: 400; font-size: clamp(20px, 2vw, 26px); color: var(--amber); word-spacing: 0.1em; }
+
+/* 첫 화면 겹침 수정: 위 블록과 아래 블록을 세로로 차례대로 쌓고, 글자 크기를 화면 높이에도 맞춘다 */
+@media (min-width: 861px) {
+  .panel { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(14px, 3.5vh, 44px); padding: 76px 0 112px; }
+  .ptop, .pbot { position: relative; top: auto; left: auto; right: auto; bottom: auto; }
+  .ptop { transform: none; }
+  .pbot, .panel.on .pbot { transform: none; }
+  .panel:not(.on) .pbot { transform: translateY(14px); }
+  .copy h1.co { font-size: clamp(56px, min(11.5vw, 17vh), 200px); }
+  .ptop .no { font-size: clamp(56px, min(9vw, 14vh), 150px); }
+  .ptop .pt { font-size: clamp(44px, min(8.4vw, 13vh), 144px); }
+  .ptop .serif { font-size: clamp(20px, min(3vw, 4.6vh), 50px); margin-top: min(10px, 1vh); }
+  .ptop .en { font-size: clamp(16px, min(2vw, 3.2vh), 34px); }
+  .pbot .pd { font-size: clamp(15px, min(1.5vw, 2.4vh), 23px); }
+  .yrs .num { font-size: clamp(56px, min(8vw, 11vh), 136px); }
+}
 </style>
 </head>
 <body>
